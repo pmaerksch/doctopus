@@ -1,0 +1,60 @@
+# Runs the test suite against every supported database.
+# Consumer applications can copy the three test jobs to prove their own migrations are portable.
+
+stages:
+  - test
+
+default:
+  image: php:8.4-cli
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq git unzip libsqlite3-dev > /dev/null
+    - docker-php-ext-install -j"$(nproc)" pdo_mysql > /dev/null
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    - composer update --no-interaction --no-progress $COMPOSER_FLAGS
+
+variables:
+  MYSQL_ROOT_PASSWORD: root
+  MYSQL_DATABASE: doctopus
+  MARIADB_ROOT_PASSWORD: root
+  MARIADB_DATABASE: doctopus
+
+.test:
+  stage: test
+  script:
+    - vendor/bin/phpunit
+
+test:sqlite:
+  extends: .test
+  variables:
+    DATABASE_URL: "sqlite:///:memory:"
+
+test:sqlite:lowest:
+  extends: .test
+  image: php:8.2-cli
+  variables:
+    DATABASE_URL: "sqlite:///:memory:"
+    COMPOSER_FLAGS: "--prefer-lowest"
+
+test:mysql:
+  extends: .test
+  services:
+    - name: mysql:8.4
+      alias: mysql
+  variables:
+    DATABASE_URL: "mysql://root:root@mysql:3306/doctopus?serverVersion=8.4&charset=utf8mb4"
+
+test:mariadb:
+  extends: .test
+  services:
+    - name: mariadb:11.4
+      alias: mariadb
+  variables:
+    DATABASE_URL: "mysql://root:root@mariadb:3306/doctopus?serverVersion=11.4.0-MariaDB&charset=utf8mb4"
+
+test:mariadb:lts:
+  extends: .test
+  services:
+    - name: mariadb:10.6
+      alias: mariadb
+  variables:
+    DATABASE_URL: "mysql://root:root@mariadb:3306/doctopus?serverVersion=10.6.0-MariaDB&charset=utf8mb4"
