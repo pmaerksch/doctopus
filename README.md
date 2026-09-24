@@ -42,7 +42,7 @@ That is one migration for three databases. doctopus makes it the default and cat
 ## Installation
 
 ```bash
-composer require software-und-meer/doctopus
+composer require pmaerksch/doctopus
 ```
 
 Without Symfony Flex, register the bundle in `config/bundles.php`:
@@ -200,7 +200,7 @@ template. The lint step then flags the generated `addSql()` lines for you to con
 ```yaml
 # config/packages/doctrine_migrations.yaml
 doctrine_migrations:
-    custom_template: '%kernel.project_dir%/vendor/software-und-meer/doctopus/templates/migration.php.tpl'
+    custom_template: '%kernel.project_dir%/vendor/pmaerksch/doctopus/templates/migration.php.tpl'
 ```
 
 ## Checking the database

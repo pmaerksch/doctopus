@@ -1,5 +1,5 @@
 {
-	"name": "software-und-meer/doctopus",
+	"name": "pmaerksch/doctopus",
 	"description": "Symfony bundle for portable, database-agnostic Doctrine migrations across MySQL, MariaDB and SQLite.",
 	"type": "symfony-bundle",
 	"license": "MIT",
