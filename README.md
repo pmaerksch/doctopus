@@ -1,6 +1,8 @@
-# doctopus
+<p align="center">
+	<img src="docs/logo.png" alt="doctopus" width="320">
+</p>
 
-**One set of Doctrine migrations, many databases.**
+<p align="center"><strong>One set of Doctrine migrations, many databases.</strong></p>
 
 doctopus is a small Symfony bundle for applications that let the person deploying them
 choose the database: **MySQL**, **MariaDB** or **SQLite**. The deployer picks one with `DATABASE_URL`
