@@ -13,18 +13,18 @@
 	"require": {
 		"php": ">=8.2",
 		"doctrine/dbal": "^3.8 || ^4.0",
-		"doctrine/doctrine-bundle": "^2.11",
-		"doctrine/doctrine-migrations-bundle": "^3.3",
+		"doctrine/doctrine-bundle": "^2.11 || ^3.0",
+		"doctrine/doctrine-migrations-bundle": "^3.3 || ^4.0",
 		"doctrine/migrations": "^3.7",
-		"symfony/config": "^6.4 || ^7.0",
-		"symfony/console": "^6.4 || ^7.0",
-		"symfony/dependency-injection": "^6.4 || ^7.0",
-		"symfony/http-kernel": "^6.4 || ^7.0"
+		"symfony/config": "^6.4 || ^7.0 || ^8.0",
+		"symfony/console": "^6.4 || ^7.0 || ^8.0",
+		"symfony/dependency-injection": "^6.4 || ^7.0 || ^8.0",
+		"symfony/http-kernel": "^6.4 || ^7.0 || ^8.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^11.5",
-		"symfony/framework-bundle": "^6.4 || ^7.0",
-		"symfony/yaml": "^6.4 || ^7.0"
+		"symfony/framework-bundle": "^6.4 || ^7.0 || ^8.0",
+		"symfony/yaml": "^6.4 || ^7.0 || ^8.0"
 	},
 	"autoload": {
 		"psr-4": {

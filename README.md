@@ -54,7 +54,8 @@ return [
 ];
 ```
 
-Requirements: PHP 8.2+, Symfony 6.4 / 7.x, Doctrine DBAL 3.8+ / 4.x, Doctrine Migrations 3.7+.
+Requirements: PHP 8.2+, Symfony 6.4 / 7.x / 8.x, Doctrine DBAL 3.8+ / 4.x, Doctrine Migrations 3.7+,
+DoctrineBundle 2.11+ / 3.x, DoctrineMigrationsBundle 3.3+ / 4.x. (Symfony 8 and the 3.x / 4.x bundles need PHP 8.4.)
 
 ## Writing portable migrations
 

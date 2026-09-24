@@ -78,7 +78,7 @@ final class TestKernel extends Kernel
 		]);
 
 		$container->extension('doctrine', [
-			'dbal' => [ 'url' => TestDatabase::url() ],
+			'dbal' => [ 'url' => TestDatabase::url(), 'logging' => false ],
 		]);
 
 		$container->extension('doctrine_migrations', [
